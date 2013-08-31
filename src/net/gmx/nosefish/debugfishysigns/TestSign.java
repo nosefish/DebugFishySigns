@@ -5,7 +5,8 @@ import java.util.regex.Pattern;
 import net.canarymod.Canary;
 import net.canarymod.api.entity.living.humanoid.Player;
 import net.gmx.nosefish.fishysigns.annotation.FishySignIdentifier;
-import net.gmx.nosefish.fishysigns.activator.*;
+import net.gmx.nosefish.fishysigns.activator.Activator;
+import net.gmx.nosefish.fishysigns.activator.ActivatorPlayerRightClick;
 import net.gmx.nosefish.fishysigns.plugin.engine.UnloadedSign;
 import net.gmx.nosefish.fishysigns.signs.FishySign;
 import net.gmx.nosefish.fishysigns.task.FishyTask;
@@ -40,8 +41,8 @@ public class TestSign extends FishySign {
 	
 	@Override
 	public void activate(Activator activator) {
-		if (activator instanceof ActivatorPlayer) {
-			String name = ((ActivatorPlayer)activator).getPlayerName();
+		if (activator instanceof ActivatorPlayerRightClick) {
+			String name = ((ActivatorPlayerRightClick)activator).getPlayerName();
 			String msg = "FishySigns: TestSign activated by player " + name + ".";  
 			FishyTask message = 
 					new PlayerMessage(name,	msg);
