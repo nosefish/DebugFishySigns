@@ -27,7 +27,7 @@ public class BlockTestSign extends FishySign {
 				for (int z = -3; z <= 3; z++) {
 					FishyVectorInt offsetVector = new FishyVectorInt(x, y, z);
 					FishyLocationInt location = this.location.addIntVector(offsetVector);
-					PollingBlockChangeWatcher.getInstance().register(this, location);
+					PollingBlockChangeWatcher.getInstance().register(this.getID(), location);
 				}
 		Log.get().logInfo("FishyBlockTest initialized at location " 
 				+ location.toString());
@@ -52,7 +52,7 @@ public class BlockTestSign extends FishySign {
 
 	@Override
 	public void remove() {
-		PollingBlockChangeWatcher.getInstance().remove(this);
+		PollingBlockChangeWatcher.getInstance().remove(this.getID());
 	}
 
 }

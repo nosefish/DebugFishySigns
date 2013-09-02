@@ -50,7 +50,7 @@ public class RedstoneTestSign extends FishySign {
 	public void initialize() {
 		for (FishyVectorInt offset : offsets) {
 			FishyLocationInt loc = this.location.addIntVector(offset);
-			RedstoneChangeWatcher.getInstance().register(this, loc);
+			RedstoneChangeWatcher.getInstance().register(this.getID(), loc);
 		}
 
 	}
@@ -67,7 +67,7 @@ public class RedstoneTestSign extends FishySign {
 
 	@Override
 	public void remove() {
-		RedstoneChangeWatcher.getInstance().remove(this);
+		RedstoneChangeWatcher.getInstance().remove(this.getID());
 	}
 	
 	/**
